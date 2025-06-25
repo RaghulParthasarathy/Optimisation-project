@@ -5,20 +5,20 @@ This project performs grid-based optimization to extract high-value polygon from
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
-### 🔧 Prerequisites
+### Prerequisites
 - A working C++ compiler (e.g., `g++`)
 - C++11 or higher
 - Sufficient memory (handles vectors of size up to 10000 × 10000)
 
-### 🛠️ Compilation
+### Compilation
 
 ```bash
 g++ -std=c++11 -o program optimization.cpp
 ```
 
-### ▶️ Running the Program
+### Running the Program
 
 ```bash
 ./program
@@ -30,7 +30,7 @@ g++ -std=c++11 -o program optimization.cpp
 
 ---
 
-## 📥 Input File Format
+## Input File Format
 
 Each file should follow the format:
 
@@ -52,34 +52,34 @@ xM yM cM
 - `M`: Number of negative crystals  
 - Each of the next `M` lines contains coordinates and the value to **subtract** at `(x, y)`
 
-⚠️ Input files must be named exactly as: `input00.txt`, `input01.txt`, ..., `input09.txt`.
+⚠ Input files must be named exactly as: `input00.txt`, `input01.txt`, ..., `input09.txt`.
 
 ---
-## 🎯 Optimization Objective
+## Optimization Objective
 
 The goal is to:
 - Segment a 2D grid such that the **sum of enclosed values** within a limited number of rectangles is **maximized**.
 - Limit the number of rectangles to around 200 because the final polygonal output must not exceed **1000 vertices**.
 - Output a set of **edges** defining the best polygonal.
 
-## 🔍 Overview of Optimization Strategy
+## Overview of Optimization Strategy
 
 The solution uses a **factor-based rectangular partitioning method**:
 
-### 📐 Grid Factorization
+### a) Grid Factorization
 - All divisors of 10,000 are computed.
 - These factors define possible horizontal and vertical cuts to form rectangular segments.
 
-### 📊 Enclosure and Merging
+### b) Enclosure and Merging
 - Each cell in the grid may have a positive or negative value.
 - Rectangles with adjacent positive-value cells are merged row-wise to reduce fragmentation.
 - A prefix sum matrix is used to compute enclosed values in constant time.
 
-### 🧮 Selection and Sorting
+### c) Selection and Sorting
 - All valid rectangles are sorted by their value sum.
 - The top 0–200 positive rectangles are selected to form the best-case approximation of high-density regions.
 
-### 🧾 Polygon Construction
+### d) Polygon Construction
 
 To convert selected rectangles into a clean polygon with minimal vertices:
 
@@ -92,7 +92,7 @@ To convert selected rectangles into a clean polygon with minimal vertices:
 
 ---
 
-## ⚙️ Potential Enhancements
+## ⚙Potential Enhancements
 
 In future versions, the following methods may be integrated for more flexible optimization:
 
@@ -104,7 +104,7 @@ In future versions, the following methods may be integrated for more flexible op
 
 ---
 
-## 🧪 Output
+## Output
 
 - Number of polygonal edges printed to stdout
 - Accuracy reported as:
@@ -118,7 +118,7 @@ In future versions, the following methods may be integrated for more flexible op
 
 ---
 
-## 💡 Troubleshooting
+## Troubleshooting
 
 - **File Not Found:** Ensure `input00.txt` to `input09.txt` exist in the code directory.
 - **Permission Denied:** Check directory permissions for output files.
@@ -127,7 +127,7 @@ In future versions, the following methods may be integrated for more flexible op
 
 ---
 
-## 🏁 Final Notes
+## Final Notes
 
 - This code is optimized for speed and handles dense, large-scale grid computations efficiently.
 - Designed for Kriti 2025: Hostel Code 90.
