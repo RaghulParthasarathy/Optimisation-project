@@ -129,7 +129,7 @@ ll max_value_using_rectangles(int rev,int mtd,int factor1,int factor2,int max_va
         if(mtd==0)
             only_positives(i,side_along_x,side_along_y,divisons_along_y,s,pre);
         else
-            only_positives(i,side_along_x,side_along_y,divisons_along_y,s,pre);
+            kadanes(i,side_along_x,side_along_y,divisons_along_y,s,pre);
     }
 
     sort(all(s));
